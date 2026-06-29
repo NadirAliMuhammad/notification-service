@@ -1,6 +1,6 @@
 # Event-Driven Notification Service
 
-A production-grade **event-driven notification service** built with Spring Boot 3 and Apache Kafka — featuring automatic retries with exponential backoff and a Dead Letter Queue (DLQ) for failed messages. This is the messaging backbone real systems use to send email, SMS, push, and webhook notifications reliably at scale.
+An **event-driven notification service** built with Spring Boot 3 and Apache Kafka — featuring automatic retries with exponential backoff and a Dead Letter Queue (DLQ) for failed messages. It models the messaging backbone systems use to send email, SMS, push, and webhook notifications reliably.
 
 ## Architecture
 
@@ -36,6 +36,14 @@ docker-compose up --build
 ```
 
 This starts Zookeeper, Kafka, and the service on port `8084`.
+
+## Tests
+
+```bash
+mvn test
+```
+
+Unit tests cover channel dispatch across all notification types and event/idempotency-key generation. (Kafka end-to-end flows run against the Docker Compose stack.)
 
 ## API Usage
 
